@@ -9,17 +9,23 @@ function App() {
 
   useEffect(() => {
     BooksAPI.getAll().then((books) => {
-      setAllBooks(books);
+      setAllBooks((prevBooks) => {
+        prevBooks = [...books];
+        return prevBooks;
+      });
     });
   }, []);
 
   console.log(allBooks);
 
-  const updateShelfs = (book, shelf) => {
-    console.log('update shelfs');
-    BooksAPI.update(book, shelf).then((res) => console.log(res));
-    setAllBooks((prevBooks) => {
-      return (prevBooks = [...prevBooks, ...prevBooks]);
+  const updateShelfs = async (book, shelf) => {
+    console.log('update shelfs', shelf);
+    await BooksAPI.update(book, shelf);
+    BooksAPI.getAll().then((updatedBooks) => {
+      setAllBooks((prevBooks) => {
+        prevBooks = [...updatedBooks];
+        return prevBooks;
+      });
     });
   };
   // BooksAPI.update({ id: 'nggnmAEACAAJ' }, 'read').then((res) =>

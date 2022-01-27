@@ -1,7 +1,12 @@
+import { useState } from 'react';
+
 function Book({ changeBookShelf, book, bookTitle, authors, imageLink }) {
+  const [bookStatus, setBookStatus] = useState('');
+
   const handleChange = (e) => {
     //console.log(e.target.value);
     //console.log(book);
+    setBookStatus(e.target.value);
     changeBookShelf(book, e.target.value);
   };
   return (
@@ -16,7 +21,7 @@ function Book({ changeBookShelf, book, bookTitle, authors, imageLink }) {
           }}
         />
         <div className='book-shelf-changer'>
-          <select onChange={handleChange}>
+          <select onChange={handleChange} value={book.shelf}>
             <option value='move' disabled>
               Move to...
             </option>
