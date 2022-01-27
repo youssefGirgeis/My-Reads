@@ -6,11 +6,6 @@ import './App.css';
 function App() {
   const [showSearchPage, setShowSearchPage] = useState(false);
   const [allBooks, setAllBooks] = useState([]);
-  // const [crBooks, setCrBooks] = useState([]);
-  // const [wtrBooks, setWtrBooks] = useState([]);
-  // const [rBooks, setRBooks] = useState([]);
-
-  //BooksAPI.getAll().then((books) => console.log(books));
 
   useEffect(() => {
     BooksAPI.getAll().then((books) => {
@@ -19,6 +14,17 @@ function App() {
   }, []);
 
   console.log(allBooks);
+
+  const updateShelfs = (book, shelf) => {
+    console.log('update shelfs');
+    BooksAPI.update(book, shelf).then((res) => console.log(res));
+    setAllBooks((prevBooks) => {
+      return (prevBooks = [...prevBooks, ...prevBooks]);
+    });
+  };
+  // BooksAPI.update({ id: 'nggnmAEACAAJ' }, 'read').then((res) =>
+  //   console.log(res)
+  // );
 
   return (
     <div className='app'>
@@ -58,14 +64,17 @@ function App() {
               allBooks={allBooks.filter(
                 (book) => book.shelf === 'currentlyReading'
               )}
+              updateShelfs={updateShelfs}
             />
             <BookShelf
               shelfTitle='Want to Read'
               allBooks={allBooks.filter((book) => book.shelf === 'wantToRead')}
+              updateShelfs={updateShelfs}
             />
             <BookShelf
               shelfTitle='Read'
               allBooks={allBooks.filter((book) => book.shelf === 'read')}
+              updateShelfs={updateShelfs}
             />
           </div>
           <div className='open-search'>
