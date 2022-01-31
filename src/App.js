@@ -28,9 +28,6 @@ function App() {
       });
     });
   };
-  // BooksAPI.update({ id: 'nggnmAEACAAJ' }, 'read').then((res) =>
-  //   console.log(res)
-  // );
 
   return (
     <div className='app'>
@@ -39,7 +36,7 @@ function App() {
           <div className='search-books-bar'>
             <button
               className='close-search'
-              onClick={() => this.setState({ showSearchPage: false })}
+              onClick={() => setShowSearchPage(false)}
             >
               Close
             </button>
@@ -84,9 +81,7 @@ function App() {
             />
           </div>
           <div className='open-search'>
-            <button onClick={() => this.setState({ showSearchPage: true })}>
-              Add a book
-            </button>
+            <button onClick={() => setShowSearchPage(true)}>Add a book</button>
           </div>
         </div>
       )}
