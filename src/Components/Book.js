@@ -1,13 +1,13 @@
 import { useState } from 'react';
 
-function Book({ changeBookShelf, book, bookTitle, authors, imageLink }) {
+function Book({ updateShelfs, book, bookTitle, authors, imageLink }) {
   const [bookStatus, setBookStatus] = useState('');
 
   const handleChange = (e) => {
     //console.log(e.target.value);
     //console.log(book);
     setBookStatus(e.target.value);
-    changeBookShelf(book, e.target.value);
+    updateShelfs(book, e.target.value);
   };
   return (
     <div className='book'>

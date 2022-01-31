@@ -34,12 +34,12 @@ function App() {
     setShowSearchPage(show);
   };
 
-  // const handleChange = (e) => {
-  //   setInputSearch(e.target.value);
-  //   BooksAPI.search(e.target.value).then((books) => {
-  //     console.log(books);
-  //     console.log(typeof books);
-  //   });
+  // const findBook = (inputSearch) => {
+  //   console.log(inputSearch);
+  //   // BooksAPI.search(inputSearch).then((books) => {
+  //   //   console.log(books);
+  //   //   console.log(typeof books);
+  //   // });
   // };
 
   //console.log('searched books', searchedBooks);
@@ -47,7 +47,7 @@ function App() {
   return (
     <div className='app'>
       {showSearchPage ? (
-        <SearchBook showPage={showPage} />
+        <SearchBook showPage={showPage} updateShelfs={updateShelfs} />
       ) : (
         <div className='list-books'>
           <div className='list-books-title'>
