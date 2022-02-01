@@ -1,8 +1,9 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import * as BooksAPI from '../BooksAPI';
-import Book from './Book';
+import Book from '../Components/Book';
 
-export default function SearchBook({ showPage, updateShelfs }) {
+export default function SearchBook({ updateShelfs }) {
   //const [inputSearch, setInputSearch] = useState('');
   const [searchedBooks, setSearchedBooks] = useState([]);
   const [error, setError] = useState('');
@@ -34,9 +35,9 @@ export default function SearchBook({ showPage, updateShelfs }) {
   return (
     <div className='search-books'>
       <div className='search-books-bar'>
-        <button className='close-search' onClick={() => showPage(false)}>
+        <Link to='/' className='close-search'>
           Close
-        </button>
+        </Link>
         <div className='search-books-input-wrapper'>
           <input
             type='text'
