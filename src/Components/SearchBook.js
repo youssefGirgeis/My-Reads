@@ -5,14 +5,31 @@ import Book from './Book';
 export default function SearchBook({ showPage, updateShelfs }) {
   //const [inputSearch, setInputSearch] = useState('');
   const [searchedBooks, setSearchedBooks] = useState([]);
+  const [error, setError] = useState('');
 
   const findBook = (inputSearch) => {
-    BooksAPI.search(inputSearch).then((books) => {
-      setSearchedBooks((prevSearchedBooks) => [...books]);
-    });
+    if (inputSearch.length > 0) {
+      BooksAPI.search(inputSearch)
+        .then((books) => {
+          if (Array.isArray(books)) {
+            setSearchedBooks((prevSearchedBooks) => [...books]);
+            setError('');
+          } else {
+            setSearchedBooks((prevSearchedBooks) => []);
+            setError('😢 Sorry, the book does not exist in the library 😢');
+          }
+        })
+        .catch((err) => {
+          console.log('Error:: ', err);
+        });
+    } else {
+      setSearchedBooks((prevSearchedBooks) => []);
+      setError('Please type a book title or author name 📗');
+    }
   };
 
   console.log('Searched Books', searchedBooks);
+  console.log(searchedBooks.length);
 
   return (
     <div className='search-books'>
@@ -30,6 +47,7 @@ export default function SearchBook({ showPage, updateShelfs }) {
         </div>
       </div>
       <div className='search-books-results'>
+        <p className='book-error'>{error}</p>
         <ol className='books-grid'>
           {searchedBooks.map((book) => (
             <li key={book.id}>
