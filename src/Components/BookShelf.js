@@ -2,13 +2,6 @@
 import Book from './Book';
 
 function BookShelf({ updateShelfs, shelfTitle, allBooks }) {
-  // console.log(BooksAPI.update(allBooks[0], 'read'));
-  console.log(allBooks);
-  // const changeBookShelf = (book, shelf) => {
-  //   updateShelfs(book, shelf);
-  //   console.log(book);
-  //   console.log(shelf);
-  // };
   return (
     <div className='bookshelf'>
       <h2 className='bookshelf-title'>{shelfTitle}</h2>
@@ -20,7 +13,9 @@ function BookShelf({ updateShelfs, shelfTitle, allBooks }) {
                 <Book
                   bookTitle={book.title}
                   authors={book.authors}
-                  imageLink={book.imageLinks.smallThumbnail}
+                  imageLink={
+                    book.imageLinks ? book.imageLinks.smallThumbnail : ''
+                  }
                   book={book}
                   updateShelfs={updateShelfs}
                 />

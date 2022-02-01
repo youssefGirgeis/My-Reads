@@ -4,7 +4,6 @@ import * as BooksAPI from '../BooksAPI';
 import Book from '../Components/Book';
 
 export default function SearchBook({ updateShelfs }) {
-  //const [inputSearch, setInputSearch] = useState('');
   const [searchedBooks, setSearchedBooks] = useState([]);
   const [error, setError] = useState('');
 
@@ -42,25 +41,29 @@ export default function SearchBook({ updateShelfs }) {
           <input
             type='text'
             placeholder='Search by title or author'
-            onChange={(e) => findBook(e.target.value)}
-            // value={inputSearch}
+            onChange={(e) => findBook(e.target.value.trim())}
           />
         </div>
       </div>
       <div className='search-books-results'>
         <p className='book-error'>{error}</p>
         <ol className='books-grid'>
-          {searchedBooks.map((book) => (
-            <li key={book.id}>
-              <Book
-                book={book}
-                bookTitle={book.title}
-                authors={book.authors}
-                imageLink={book.imageLinks.smallThumbnail}
-                updateShelfs={updateShelfs}
-              />
-            </li>
-          ))}
+          {searchedBooks.map((book) => {
+            book.shelf = 'none';
+            return (
+              <li key={book.id}>
+                <Book
+                  book={book}
+                  bookTitle={book.title}
+                  authors={book.authors}
+                  imageLink={
+                    book.imageLinks ? book.imageLinks.smallThumbnail : ''
+                  }
+                  updateShelfs={updateShelfs}
+                />
+              </li>
+            );
+          })}
         </ol>
       </div>
     </div>

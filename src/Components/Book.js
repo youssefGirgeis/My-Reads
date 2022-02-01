@@ -4,8 +4,8 @@ function Book({ updateShelfs, book, bookTitle, authors, imageLink }) {
   const [bookStatus, setBookStatus] = useState('');
 
   const handleChange = (e) => {
-    //console.log(e.target.value);
-    //console.log(book);
+    console.log(e.target.value);
+    console.log(book);
     setBookStatus(e.target.value);
     updateShelfs(book, e.target.value);
   };

@@ -1,39 +1,9 @@
-import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import * as BooksAPI from '../BooksAPI';
+
 import BookShelf from '../Components/BookShelf';
-import SearchBook from './SearchBook';
 import '../App.css';
 
-export default function Home() {
-  //const [showSearchPage, setShowSearchPage] = useState(false);
-  const [allBooks, setAllBooks] = useState([]);
-
-  useEffect(() => {
-    BooksAPI.getAll().then((books) => {
-      setAllBooks((prevBooks) => {
-        prevBooks = [...books];
-        return prevBooks;
-      });
-    });
-  }, []);
-
-  console.log(allBooks);
-
-  const updateShelfs = async (book, shelf) => {
-    console.log('update shelfs', shelf);
-    await BooksAPI.update(book, shelf);
-    BooksAPI.getAll().then((updatedBooks) => {
-      setAllBooks((prevBooks) => {
-        prevBooks = [...updatedBooks];
-        return prevBooks;
-      });
-    });
-  };
-
-  //   const showPage = (show) => {
-  //     setShowSearchPage(show);
-  //   };
+export default function Home({ allBooks, updateShelfs }) {
   return (
     <div className='list-books'>
       <div className='list-books-title'>
