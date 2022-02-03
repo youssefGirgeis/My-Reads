@@ -15,25 +15,25 @@ I was able to create and build the React components to populate the main page an
 
 ## Folder Struture
 
-📦src
-┣ 📂Components
-┃ ┣ 📜Book.js
-┃ ┣ 📜BookShelf.js
-┃ ┗ 📜ShelfChanger.js
-┣ 📂icons
-┃ ┣ 📜add.svg
-┃ ┣ 📜arrow-back.svg
-┃ ┗ 📜arrow-drop-down.svg
-┣ 📂pages
-┃ ┣ 📜Error.js
-┃ ┣ 📜Home.js
-┃ ┗ 📜SearchBook.js
-┣ 📜App.css
-┣ 📜App.js
-┣ 📜App.test.js
-┣ 📜BooksAPI.js
-┣ 📜index.css
-┗ 📜index.js
+├─src/
+│ 　 ├─Components/
+│ 　 │ 　 ├─Book.js
+│ 　 │ 　 ├─BookShelf.js
+│ 　 │ 　 └─ShelfChanger.js
+│ 　 ├─icons/
+│ 　 │ 　 ├─add.svg
+│ 　 │ 　 ├─arrow-back.svg
+│ 　 │ 　 └─arrow-drop-down.svg
+│ 　 ├─pages/
+│ 　 │ 　 ├─Error.js
+│ 　 │ 　 ├─Home.js
+│ 　 │ 　 └─SearchBook.js
+│ 　 ├─App.css
+│ 　 ├─App.js
+│ 　 ├─App.test.js
+│ 　 ├─BooksAPI.js
+│ 　 ├─index.css
+│ 　 └─index.js
 
 ## Features
 
