@@ -1,14 +1,8 @@
 import { useState } from 'react';
 
-function Book({ updateShelfs, book, bookTitle, authors, imageLink }) {
-  const [bookStatus, setBookStatus] = useState('');
+import ShelfChanger from './ShelfChanger';
 
-  const handleChange = (e) => {
-    console.log(e.target.value);
-    console.log(book);
-    setBookStatus(e.target.value);
-    updateShelfs(book, e.target.value);
-  };
+function Book({ updateShelfs, book, bookTitle, authors, imageLink }) {
   return (
     <div className='book'>
       <div className='book-top'>
@@ -20,17 +14,7 @@ function Book({ updateShelfs, book, bookTitle, authors, imageLink }) {
             backgroundImage: `url('${imageLink}')`,
           }}
         />
-        <div className='book-shelf-changer'>
-          <select onChange={handleChange} value={book.shelf}>
-            <option value='move' disabled>
-              Move to...
-            </option>
-            <option value='currentlyReading'>Currently Reading</option>
-            <option value='wantToRead'>Want to Read</option>
-            <option value='read'>Read</option>
-            <option value='none'>None</option>
-          </select>
-        </div>
+        <ShelfChanger updateShelfs={updateShelfs} book={book} />
       </div>
       <div className='book-title'>{bookTitle}</div>
       <div className='book-authors'>{authors}</div>

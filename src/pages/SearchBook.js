@@ -24,7 +24,6 @@ export default function SearchBook({ updateShelfs }) {
         });
     } else {
       setSearchedBooks((prevSearchedBooks) => []);
-      setError('Please type a book title or author name 📗');
     }
   };
 
