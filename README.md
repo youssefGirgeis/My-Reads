@@ -35,6 +35,25 @@ I was able to create and build the React components to populate the main page an
 │ 　 ├─index.css
 │ 　 └─index.js
 
+src
+--Components
+-----Book.js
+-----BookShelf.js
+-----ShelfChanger.js
+--icons
+-----add.svg
+-----arrow-back.svg
+-----arrow-drop-down-svg
+--pages
+-----Error.js
+-----Home.js
+-----SearchBook.js
+App.css
+App.js
+BooksAPI.js
+index.css
+index.js
+
 ## Features
 
 - Ability to move books between shelfs
@@ -52,10 +71,32 @@ I was able to create and build the React components to populate the main page an
 - CSS3
 - VScode
 
+## Backend Server
+
+To simplify your development process, UDacity provided a backend server for us to develop against. The provided file BooksAPI.js contains the methods you need to perform necessary operations on the backend:
+
+#### getAll
+
+-Returns a Promise which resolves to a JSON object containing a collection of book objects.
+-This collection represents the books currently in the bookshelves in your app.
+
+#### update
+
+-update(book, shelf)
+-book: <Object> containing at minimum an id attribute
+-shelf: <String> contains one of ["wantToRead", "currentlyReading", "read"]
+-Returns a Promise which resolves to a JSON object containing the response data of the POST request
+
+#### search
+
+-search(query) query: <String>
+-Returns a Promise which resolves to a JSON object containing a collection of a maximum of 20 book objects
+-These books do not know which shelf they are on. They are raw results only. You'll need to make sure that books have the correct state while on the search page.
+
 ## Search Limitation
 
 The backend API uses a fixed set of cached search results and is limited to a particular set of search terms, which can be found in search terms below. That list of terms are the only terms that will work with the backend, so don't be surprised if your searches for Basket Weaving or Bubble Wrap don't come back with any results.
 
-### Search Terms
+## Search Terms
 
 'Android', 'Art', 'Artificial Intelligence', 'Astronomy', 'Austen', 'Baseball', 'Basketball', 'Bhagat', 'Biography', 'Brief', 'Business', 'Camus', 'Cervantes', 'Christie', 'Classics', 'Comics', 'Cook', 'Cricket', 'Cycling', 'Desai', 'Design', 'Development', 'Digital Marketing', 'Drama', 'Drawing', 'Dumas', 'Education', 'Everything', 'Fantasy', 'Film', 'Finance', 'First', 'Fitness', 'Football', 'Future', 'Games', 'Gandhi', 'History', 'History', 'Homer', 'Horror', 'Hugo', 'Ibsen', 'Journey', 'Kafka', 'King', 'Lahiri', 'Larsson', 'Learn', 'Literary Fiction', 'Make', 'Manage', 'Marquez', 'Money', 'Mystery', 'Negotiate', 'Painting', 'Philosophy', 'Photography', 'Poetry', 'Production', 'Program Javascript', 'Programming', 'React', 'Redux', 'River', 'Robotics', 'Rowling', 'Satire', 'Science Fiction', 'Shakespeare', 'Singh', 'Swimming', 'Tale', 'Thrun', 'Time', 'Tolstoy', 'Travel', 'Ultimate', 'Virtual Reality', 'Web Development', 'iOS'
