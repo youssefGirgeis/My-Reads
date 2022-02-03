@@ -1,7 +1,9 @@
 export default function ShelfChanger({ updateShelfs, book }) {
+  /**
+   * handles user changes when they desire to move a book from one shelf to another
+   * @param {*} e: event
+   */
   const handleChange = (e) => {
-    console.log(e.target.value);
-    console.log(book);
     updateShelfs(book, e.target.value);
   };
 

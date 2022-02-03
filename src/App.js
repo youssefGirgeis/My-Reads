@@ -12,6 +12,7 @@ import './App.css';
 function App() {
   const [allBooks, setAllBooks] = useState([]);
 
+  // get all books once components is rendered (the first render)
   useEffect(() => {
     BooksAPI.getAll().then((books) => {
       setAllBooks((prevBooks) => {
@@ -21,10 +22,12 @@ function App() {
     });
   }, []);
 
-  console.log(allBooks);
-
+  /**
+   * update book's shelf
+   * @param {*} book : selected by user and moved to a different shelf
+   * @param {*} shelf : the new shelf the book moved to
+   */
   const updateShelfs = async (book, shelf) => {
-    console.log('update shelfs', shelf);
     await BooksAPI.update(book, shelf);
     BooksAPI.getAll().then((updatedBooks) => {
       setAllBooks((prevBooks) => {

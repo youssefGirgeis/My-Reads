@@ -4,9 +4,15 @@ import * as BooksAPI from '../BooksAPI';
 import Book from '../Components/Book';
 
 export default function SearchBook({ updateShelfs }) {
+  // list of books returned by the api when user searches a book
   const [searchedBooks, setSearchedBooks] = useState([]);
+  // a message to be displayed if the book search is not successful
   const [error, setError] = useState('');
 
+  /**
+   * display a list of searched books on the page
+   * @param {*} inputSearch : user's text
+   */
   const findBook = (inputSearch) => {
     if (inputSearch.length > 0) {
       BooksAPI.search(inputSearch)
@@ -20,15 +26,12 @@ export default function SearchBook({ updateShelfs }) {
           }
         })
         .catch((err) => {
-          console.log('Error:: ', err);
+          setError(err);
         });
     } else {
       setSearchedBooks((prevSearchedBooks) => []);
     }
   };
-
-  console.log('Searched Books', searchedBooks);
-  console.log(searchedBooks.length);
 
   return (
     <div className='search-books'>

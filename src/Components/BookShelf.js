@@ -1,4 +1,3 @@
-// import * as BooksAPI from './BooksAPI';
 import Book from './Book';
 
 function BookShelf({ updateShelfs, shelfTitle, allBooks }) {

@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 import ShelfChanger from './ShelfChanger';
 
 function Book({ updateShelfs, book, bookTitle, authors, imageLink }) {
@@ -17,7 +15,7 @@ function Book({ updateShelfs, book, bookTitle, authors, imageLink }) {
         <ShelfChanger updateShelfs={updateShelfs} book={book} />
       </div>
       <div className='book-title'>{bookTitle}</div>
-      <div className='book-authors'>{authors.join(', ')}</div>
+      <div className='book-authors'>{authors ? authors.join(', ') : ''}</div>
     </div>
   );
 }
