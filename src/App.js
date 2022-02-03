@@ -4,6 +4,7 @@ import * as BooksAPI from './BooksAPI';
 //pages
 import Home from './pages/Home';
 import SearchBook from './pages/SearchBook';
+import Error from './pages/Error';
 
 // styles
 import './App.css';
@@ -36,13 +37,19 @@ function App() {
   return (
     <div className='app'>
       <Router>
-        <Route exact path='/'>
-          <Home allBooks={allBooks} updateShelfs={updateShelfs} />
-        </Route>
+        <Switch>
+          <Route exact path='/'>
+            <Home allBooks={allBooks} updateShelfs={updateShelfs} />
+          </Route>
 
-        <Route path='/search'>
-          <SearchBook updateShelfs={updateShelfs} />
-        </Route>
+          <Route path='/search'>
+            <SearchBook updateShelfs={updateShelfs} />
+          </Route>
+
+          <Route path='*'>
+            <Error />
+          </Route>
+        </Switch>
       </Router>
     </div>
   );
