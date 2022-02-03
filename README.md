@@ -1,70 +1,61 @@
 # My Reads: Book Tracking App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## About
 
-## Available Scripts
+MyReads is a project from Udacity's React Nanodegree course. This is a bookshelf app that lets you to organize books that you have read.
+This project emphasizes the use of React with a given API server. The starter template provided by Udacity contains the CSS and HTML for the project but no React.
+I was able to create and build the React components to populate the main page and search page with books. THe main page has three shelves that users are able to move the books between shelves. The search page allows users to search for new books to add to their shelves. Upon selecting a book to add to shelves, when you navigate back to the home page, you can immeditately view the selections made on the search page. This project uses React's Hooks to manage state and build the functionality to move books from one shelf to another.
 
-In the project directory, you can run:
+## Getting Started
 
-### `npm start`
+1. Clone the project: open a terminal and type clone https://github.com/youssefGirgeis/My-Reads.git
+2. Navigate to the root directory of the project: cd My-Reads
+3. Install dependencies: npm install
+4. Launch the app: npm start
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Folder Struture
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+📦src
+┣ 📂Components
+┃ ┣ 📜Book.js
+┃ ┣ 📜BookShelf.js
+┃ ┗ 📜ShelfChanger.js
+┣ 📂icons
+┃ ┣ 📜add.svg
+┃ ┣ 📜arrow-back.svg
+┃ ┗ 📜arrow-drop-down.svg
+┣ 📂pages
+┃ ┣ 📜Error.js
+┃ ┣ 📜Home.js
+┃ ┗ 📜SearchBook.js
+┣ 📜App.css
+┣ 📜App.js
+┣ 📜App.test.js
+┣ 📜BooksAPI.js
+┣ 📜index.css
+┗ 📜index.js
 
-### `npm test`
+## Features
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Ability to move books between shelfs
+- Search and add new books your shelfs
+- Delete books from shelfs
+- If book is on a shelf on the main page and that book appears on the search page, the correct shelf is selected on the search page. If that book's shelf is changed on the search page, that change is reflected on the main page as well
 
-### `npm run build`
+## Built with
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- React
+- Create React App
+- React Router
+- JavaScript
+- HTML5
+- CSS3
+- VScode
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Search Limitation
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The backend API uses a fixed set of cached search results and is limited to a particular set of search terms, which can be found in search terms below. That list of terms are the only terms that will work with the backend, so don't be surprised if your searches for Basket Weaving or Bubble Wrap don't come back with any results.
 
-### `npm run eject`
+### Search Terms
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+'Android', 'Art', 'Artificial Intelligence', 'Astronomy', 'Austen', 'Baseball', 'Basketball', 'Bhagat', 'Biography', 'Brief', 'Business', 'Camus', 'Cervantes', 'Christie', 'Classics', 'Comics', 'Cook', 'Cricket', 'Cycling', 'Desai', 'Design', 'Development', 'Digital Marketing', 'Drama', 'Drawing', 'Dumas', 'Education', 'Everything', 'Fantasy', 'Film', 'Finance', 'First', 'Fitness', 'Football', 'Future', 'Games', 'Gandhi', 'History', 'History', 'Homer', 'Horror', 'Hugo', 'Ibsen', 'Journey', 'Kafka', 'King', 'Lahiri', 'Larsson', 'Learn', 'Literary Fiction', 'Make', 'Manage', 'Marquez', 'Money', 'Mystery', 'Negotiate', 'Painting', 'Philosophy', 'Photography', 'Poetry', 'Production', 'Program Javascript', 'Programming', 'React', 'Redux', 'River', 'Robotics', 'Rowling', 'Satire', 'Science Fiction', 'Shakespeare', 'Singh', 'Swimming', 'Tale', 'Thrun', 'Time', 'Tolstoy', 'Travel', 'Ultimate', 'Virtual Reality', 'Web Development', 'iOS'
