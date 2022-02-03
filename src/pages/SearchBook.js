@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import * as BooksAPI from '../BooksAPI';
 import Book from '../Components/Book';
 
-export default function SearchBook({ updateShelfs }) {
+export default function SearchBook({ updateShelfs, allBooks }) {
   // list of books returned by the api when user searches a book
   const [searchedBooks, setSearchedBooks] = useState([]);
   // a message to be displayed if the book search is not successful
@@ -33,6 +33,18 @@ export default function SearchBook({ updateShelfs }) {
     }
   };
 
+  /**
+   * Assign a shelf to books appear on the search page
+   * @param {*} book: a book on the shearch page
+   * @returns a shelf to be assign to a book on the search page
+   */
+  const assignShelf = (book) => {
+    const matchedbook = allBooks.find((b) => book.id === b.id);
+    return matchedbook ? matchedbook.shelf : 'none';
+  };
+
+  // console.log(searchedBooks);
+
   return (
     <div className='search-books'>
       <div className='search-books-bar'>
@@ -51,7 +63,7 @@ export default function SearchBook({ updateShelfs }) {
         <p className='book-error'>{error}</p>
         <ol className='books-grid'>
           {searchedBooks.map((book) => {
-            book.shelf = 'none';
+            book.shelf = assignShelf(book);
             return (
               <li key={book.id}>
                 <Book

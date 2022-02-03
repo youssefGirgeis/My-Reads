@@ -37,6 +37,8 @@ function App() {
     });
   };
 
+  // console.log(allBooks);
+
   return (
     <div className='app'>
       <Router>
@@ -46,7 +48,7 @@ function App() {
           </Route>
 
           <Route path='/search'>
-            <SearchBook updateShelfs={updateShelfs} />
+            <SearchBook updateShelfs={updateShelfs} allBooks={allBooks} />
           </Route>
 
           <Route path='*'>
